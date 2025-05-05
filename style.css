@@ -1,0 +1,168 @@
+:root {
+    --primary: #70d89a;
+    --secondary: rgb(217, 246, 196);
+    --background: lavender;
+    --light: white;
+    --dark: black;
+    --remove: red;
+
+    --debug: red;
+
+    font-family: cursive, Helvetica, sans-serif;
+    font-size: 1.1em;
+}
+
+*::selection {
+    background-color: var(--primary);
+    color: var(--light);
+}
+
+*::-webkit-scrollbar {
+    width: .5em;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 5px;
+}
+*::-webkit-scrollbar-track {
+    background-color: var(--light);
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    
+    height: 100dvh;
+    width: 100dvw;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    font-size: 1em;
+    padding: .7em;
+    height: 60px;
+    width: 100dvw;
+    
+    background-color: var(--secondary);
+}
+
+.header .btn {
+    background-color: var(--dark);
+    padding: .3em;
+    border-radius: 5px;
+    color: var(--light);
+    font-weight: bold;
+    text-shadow: 1px 1px 1px var(--dark);
+}
+
+.header .text {
+    
+    background-color: var(--primary);
+    padding: .3em;
+    border-radius: 5px;
+    color: var(--light);
+    font-weight: bold;
+}
+
+
+.wrapper {
+    display: flex;
+    height: calc(100dvh - 60px);
+}
+
+.wrapper > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 50dvw;
+    height: calc(100dvh - 60px);
+}
+
+.wrapper > div:nth-child(1){
+    background-color: inherit;
+}
+
+.wrapper > div:nth-child(2){
+    background-color: var(--inherit);
+}
+
+
+
+/* <div class="course_container">
+                <input class="course_input course_name" type="text" placeholder="Course Name">
+                <input class="course_input course_units" type="text" placeholder="Units">
+                <input class="course_input course_grade" type="text" placeholder="Grade">
+            </div> */
+
+
+.midterm_course_collection, .final_course_collection {
+    display: grid;
+    flex-wrap: wrap;
+
+    overflow-y: scroll;
+}
+
+.course_container {
+
+    align-self: flex-start;
+    
+    width: 80%;
+    display: grid;
+    grid-template-areas: 
+    "course_name course_name course_name course_remove"
+    "course_units course_units course_grade course_grade"
+    ;
+    grid-template-rows: auto 1fr;
+    gap: .1em;
+
+    margin: 1em;
+
+}
+
+.course_input {
+    outline: none;
+    border: solid 0;
+    width: 100%;
+    font-size: .9em;
+    text-overflow: ellipsis;
+
+    border: solid 3px var(--primary);
+    padding: .7em;
+}
+
+.course_name {
+    grid-area: course_name;
+}
+.course_units {
+    grid-area: course_units;
+
+}
+.course_grade {
+    grid-area: course_grade;
+
+}
+
+.remove {
+    grid-area: course_remove;
+    background-color: var(--remove);
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    width:  100%;
+
+    color: var(--light);
+    /* text-shadow: 1px 1px 10px var(--dark); */
+}
